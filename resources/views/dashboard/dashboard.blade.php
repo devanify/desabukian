@@ -1,0 +1,7 @@
+@include('dashboard.partials.header')
+@yield('header-link')
+@include('dashboard.partials.navbar')
+@include('dashboard.partials.sidenav')
+@yield('content')
+@yield('script')
+@include('dashboard.partials.footer')
