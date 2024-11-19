@@ -108,3 +108,8 @@ Langkah-langkah kontribusi:
 1. **Fitur Utama**: Telah diperbarui untuk mencakup fitur-fitur yang Anda inginkan, seperti **Blog/Artikel**, **Galeri**, **Sejarah Desa**, **Halaman Profil**, **Dashboard Admin**, dan **Pengumuman**.
 2. **Dashboard Admin**: Ditambahkan penjelasan tentang bagaimana admin dapat mengelola artikel, galeri, dan pengumuman dari dashboard.
 3. **Instalasi**: Proses instalasi tetap sama, namun bisa diperbarui jika ada penambahan dependensi atau konfigurasi lebih lanjut.
+
+
+#Next Fiture
+1. Infografis
+2. User Sistem
