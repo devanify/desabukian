@@ -14,8 +14,9 @@
                 Perbarui Data Gambar
             </div>
             <div class="card-body">
-                <form action="{{ route('galeri.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('galeri.update',['id'=>$galeri->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <label for="description" class="form-label">Keterangan</label>
                         <input type="text" class="form-control" id="title" name="description" maxlength="255" value="{{ old('description' , $galeri->description) }}" required>

@@ -1,4 +1,4 @@
-<div class="flex items-center justify-center h-screen" id="tentang">
+<div class="flex items-center justify-center" id="tentang">
     <!-- Features -->
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto" >
         <div class="relative p-6 md:p-16">

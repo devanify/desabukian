@@ -3,6 +3,9 @@
 /public/build
 /public/hot
 /public/storage
+/public/assets/image/pengurus_desa
+/public/assets/image/galeri
+/public/assets/image/posts
 /storage/*.key
 /storage/pail
 /vendor

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PengurusDesa;
+use Carbon\Carbon;
 use App\Models\Post;
+use App\Models\Galeri;
+use App\Models\PengurusDesa;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -16,9 +18,26 @@ class PageController extends Controller
     }
 
     // Menampilkan halaman galeri
-    public function gallery()
+    public function gallery(Request $request)
     {
-        return view('galery');
+        $year = $request->input('year', Carbon::now()->year);
+
+        // Ambil galeri dan kelompokkan berdasarkan bulan dan tahun
+        $galeri = Galeri::when($year, function ($query) use ($year) {
+            // Jika ada input tahun, filter galeri berdasarkan tahun
+            return $query->whereYear('created_at', $year);
+        })->get()->groupBy(function ($date) {
+            // Mengelompokkan berdasarkan bulan dan tahun
+            return Carbon::parse($date->created_at)->format('F Y');
+        });
+
+        // Ambil daftar tahun yang tersedia untuk dropdown filter
+        $years = Galeri::selectRaw('YEAR(created_at) as year')
+            ->distinct()
+            ->orderByDesc('year')
+            ->pluck('year');
+
+        return view('galery', compact('galeri', 'years'));
     }
     // Menampilkan halaman sejarah
     public function sejarah()

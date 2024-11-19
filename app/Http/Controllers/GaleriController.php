@@ -73,9 +73,48 @@ class GaleriController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, galeri $galeri)
+    public function update(Request $request, $id)
     {
-        //
+        // Validasi input
+    $validated = $request->validate([
+        'image_url' => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+        'description' => 'required|string'
+    ]);
+
+        // Cari data galeri berdasarkan ID
+    $galeri = Galeri::findOrFail($id);
+
+    // Proses file gambar baru jika ada
+    if ($request->hasFile('image_url')) {
+        // Hapus file lama jika ada
+        $oldImagePath = public_path('assets/image/galeri/' . $galeri->image_url);
+        if (file_exists($oldImagePath) && $galeri->image_url) {
+            unlink($oldImagePath);
+        }
+
+        // Upload file baru
+        $originalName = $request->file('image_url')->getClientOriginalName();
+        $modifiedName = str_replace(' ', '_', $originalName);
+        $newImagePath = $request->file('image_url')->move(public_path('assets/image/galeri'), $modifiedName);
+
+        // Simpan nama file baru
+        $galeri->image_url = $modifiedName;
+    }
+
+
+
+    // Update deskripsi
+    $galeri->description = $request->description;
+
+
+    // dd($request->all(), $galeri->toArray());
+
+    // Simpan perubahan
+    $galeri->save();
+
+    // Redirect ke halaman index galeri dengan pesan sukses
+    return redirect()->route('galeri.index')->with('success', 'Galeri updated successfully!');
+
     }
 
     /**

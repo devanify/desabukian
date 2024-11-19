@@ -7,7 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PengurusDesaController;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
-Route::get('/galeri', [PageController::class, 'gallery']);
+Route::get('/galeri', [PageController::class, 'gallery'])->name('gallery');
 Route::get('/sejarah', [PageController::class, 'sejarah']);
 Route::get('/login', [PageController::class, 'login']);
 Route::get('/blog', [PageController::class, 'blog'])->name('blog');

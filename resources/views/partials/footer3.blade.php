@@ -52,8 +52,7 @@
       <div class="flex flex-wrap items-center md:justify-between justify-center">
         <div class="w-full md:w-4/12 px-4 mx-auto text-center">
           <div class="text-sm text-gray-400 font-semibold py-1">
-            © <span id="get-current-year">2024</span><a href="/" class="text-gray-100 hover:text-gray-800" target="_blank"> Desa Bukian </a> by
-            <a href="https://www.instagram.com/yanevannn/" class="text-gray-100 hover:text-gray-300" target="_blank">Yanevann</a>.
+            © <span id="get-current-year">2024</span><a href="/" class="text-gray-100 hover:text-gray-200" target="_blank"> Desa Bukian </a>
           </div>
         </div>
       </div>
