@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\InfografisController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
@@ -32,3 +33,9 @@ Route::get('/dashboard/galeri/create',[GaleriController::class, 'create'])->name
 Route::post('/dashboard/galeri/store',[GaleriController::class, 'store'])->name('galeri.store');
 Route::get('/dashboard/galeri/edit/{id}',[GaleriController::class, 'edit'])->name('galeri.edit');
 Route::put('/dashboard/galeri/{id}',[GaleriController::class, 'update'])->name('galeri.update');
+
+Route::get('/dashboard/infografis',[InfografisController::class, 'index'])->name('infografis.index');
+Route::get('/dashboard/infografis/create',[InfografisController::class, 'create'])->name('infografis.create');
+Route::post('/dashboard/infografis/store',[InfografisController::class, 'store'])->name('infografis.store');
+Route::get('/dashboard/infografis/edit/{id}',[InfografisController::class, 'edit'])->name('infografis.edit');
+Route::put('/dashboard/infografis/{id}',[InfografisController::class, 'update'])->name('infografis.update');

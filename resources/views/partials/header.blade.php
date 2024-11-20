@@ -36,14 +36,17 @@
                   Tentang
                 </a>
 
-                <a class="py-1.5 md:px-2 flex items-center text-sm text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 " href="{{ route('home') }}/visi&misi">
+                <a class="py-1.5 md:px-2 flex items-center text-sm text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 " href="{{ route('home') }}/#visi&misi">
                   Visi & Misi
                 </a>
-                <a class="py-1.5 md:px-2 flex items-center text-sm text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 " href="{{ route('home') }}//#lokasi">
+                <a class="py-1.5 md:px-2 flex items-center text-sm text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 " href="{{ route('home') }}/#lokasi">
                   Lokasi
                 </a>
-                <a class="py-1.5 md:px-2 flex items-center text-sm text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 " href="{{ route('home') }}//#video">
+                <a class="py-1.5 md:px-2 flex items-center text-sm text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 " href="{{ route('home') }}/#video">
                   Video Profile
+                </a>
+                <a class="py-1.5 md:px-2 flex items-center text-sm text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 " href="{{ route('home') }}/#infografis">
+                  Infografis
                 </a>
               </div>
             </div>
@@ -52,7 +55,7 @@
 
           <a class="font-medium text-base {{ request()->is('sejarah') ? 'text-blue-700' : 'text-gray-600 hover:text-gray-400' }}" href="/sejarah">Sejarah </a>
           <a class="font-medium text-base {{ request()->is('galeri') ? 'text-blue-700' : 'text-gray-600 hover:text-gray-400' }}" href="/galeri">Galeri </a>
-          <a class="font-medium text-base {{ request()->is('blog') ? 'text-blue-700' : 'text-gray-600 hover:text-gray-400' }}" href="/blog">Blog </a>
+          <a class="font-medium text-base {{ request()->is('blog') ? 'text-blue-700' : 'text-gray-600 hover:text-gray-400' }}" href="/blog">Artikel </a>
         </div>
       </div>
     </nav>

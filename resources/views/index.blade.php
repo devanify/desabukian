@@ -18,7 +18,7 @@
 @include('partials.visimisi')
 @include('partials.maps')
 @include('partials.youtube')
-{{-- @include('partials.blog') --}}
+@include('partials.infografis')
 @include('partials.footer3')
 </body>
 </html>

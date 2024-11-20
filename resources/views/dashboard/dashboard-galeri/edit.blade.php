@@ -19,13 +19,20 @@
                     @method('PUT')
                     <div class="mb-3">
                         <label for="description" class="form-label">Keterangan</label>
-                        <input type="text" class="form-control" id="title" name="description" maxlength="255" value="{{ old('description' , $galeri->description) }}" required>
+                        <input type="text" class="form-control" id="title" name="description" maxlength="255" value="{{ old('description' , $galeri->description) }}">
+                        @error('description')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="image_url" class="form-label">Upload Image</label>
                         <br>
-                        <img src="{{ asset('assets/image/galeri/' . $galeri->image_url) }}" alt="" class="mb-4">
+                        <img src="{{ asset('assets/image/galeri/' . $galeri->image_url) }}" alt="" class="mb-4" height="200px">
                         <input type="file" class="form-control" id="image_url" name="image_url" accept="image/*" value="{{ old('image_url' ,  $galeri->image_url) }}">
+                        <p class="mt-1 text-secondary">Ukuran Gambar Maksimal 2MB</p>
+                        @error('image_url')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <button type="submit" class="btn btn-primary">Simpan Gambar</button>

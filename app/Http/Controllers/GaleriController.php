@@ -29,10 +29,17 @@ class GaleriController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate(([
+        $validated = $request->validate([
             'image_url' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
             'description' => 'required|string'
-        ]));
+        ],[
+            'image_url.required' => 'Gambar harus diunggah.',
+            'image_url.image' => 'File yang diunggah harus berupa gambar.',
+            'image_url.mimes' => 'Format gambar yang diterima hanya jpg, jpeg, png, gif, dan svg.',
+            'image_url.max' => 'Ukuran gambar maksimal adalah 2MB.',
+            'description.required' => 'Deskripsi tidak boleh kosong.',
+            'description.string' => 'Deskripsi harus berupa teks.'
+        ]);
 
 
         $originalName = $request->file('image_url')->getClientOriginalName();
@@ -50,7 +57,7 @@ class GaleriController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect()->route('galeri.index')->with('success', 'Galeri created successfully!');
+        return redirect()->route('galeri.index')->with('added', 'Data gambar berhasil ditambahkan ke galeri!');
     }
 
     /**
@@ -79,6 +86,13 @@ class GaleriController extends Controller
     $validated = $request->validate([
         'image_url' => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
         'description' => 'required|string'
+    ], [
+        'image_url.nullable' => 'Gambar bersifat opsional, namun jika diisi, format yang diterima adalah JPG, JPEG, PNG, GIF, atau SVG dengan ukuran maksimal 2MB.',
+        'image_url.image' => 'File yang diunggah harus berupa gambar.',
+        'image_url.mimes' => 'Gambar harus berformat JPG, JPEG, PNG, GIF, atau SVG.',
+        'image_url.max' => 'Ukuran gambar tidak boleh lebih dari 2MB.',
+        'description.required' => 'Deskripsi harus diisi.',
+        'description.string' => 'Deskripsi harus berupa teks.',
     ]);
 
         // Cari data galeri berdasarkan ID
@@ -113,7 +127,7 @@ class GaleriController extends Controller
     $galeri->save();
 
     // Redirect ke halaman index galeri dengan pesan sukses
-    return redirect()->route('galeri.index')->with('success', 'Galeri updated successfully!');
+    return redirect()->route('galeri.index')->with('edited', 'Data Gambar berhasil Diperbarui!');
 
     }
 

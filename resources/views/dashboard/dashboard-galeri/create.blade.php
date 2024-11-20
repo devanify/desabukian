@@ -18,11 +18,18 @@
                     @csrf
                     <div class="mb-3">
                         <label for="description" class="form-label">Keterangan</label>
-                        <input type="text" class="form-control" id="title" name="description" maxlength="255" value="{{ old('description') }}" required>
+                        <input type="text" class="form-control" id="title" name="description" maxlength="255" value="{{ old('description') }}" >
+                        @error('description')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="image_url" class="form-label">Upload Image</label>
                         <input type="file" class="form-control" id="image_url" name="image_url" accept="image/*" value="{{ old('image_url') }}">
+                        <p class="mt-1 text-secondary">Ukuran Gambar Maksimal 2MB</p>
+                        @error('image_url')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <button type="submit" class="btn btn-primary">Simpan Gambar</button>

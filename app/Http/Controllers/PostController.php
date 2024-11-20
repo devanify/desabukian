@@ -35,7 +35,17 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string', // Konten wajib ada dan harus berupa string
-            'image_url' => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048', // Validasi file gambar (opsional)
+            'image_url' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048', // Validasi file gambar (opsional)
+        ], [
+            'title.required' => 'Judul wajib diisi.',
+            'title.string' => 'Judul harus berupa teks.',
+            'title.max' => 'Judul maksimal 255 karakter.',
+            'content.required' => 'Konten wajib diisi.',
+            'content.string' => 'Konten harus berupa teks.',
+            'image_url.required' => 'Gambar Wajib Diisi.',
+            'image_url.image' => 'File yang diunggah harus berupa gambar.',
+            'image_url.mimes' => 'Format gambar yang diterima hanya jpg, jpeg, png, gif, atau svg.',
+            'image_url.max' => 'Ukuran gambar maksimal 2MB.',
         ]);
         
         // Menyimpan gambar jika ada yang diunggah
@@ -63,7 +73,7 @@ class PostController extends Controller
         ]);
 
         // Redirect atau kembalikan response sesuai kebutuhan
-        return redirect()->route('posts.index')->with('success', 'Post created successfully!');
+        return redirect()->route('posts.index')->with('added', 'Artikel Berhasil Dibuat!');
     }
 
     /**
@@ -92,7 +102,16 @@ class PostController extends Controller
     $validated = $request->validate([
         'title' => 'required|string|max:255',
         'content' => 'required|string', // Konten wajib ada dan harus berupa string
-        'image_url' => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048', // Validasi file gambar (opsional)
+        'image_url' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048', // Validasi file gambar (opsional)
+    ],[
+        'title.required' => 'Judul wajib diisi.',
+        'title.string' => 'Judul harus berupa teks.',
+        'title.max' => 'Judul maksimal 255 karakter.',
+        'content.required' => 'Konten wajib diisi.',
+        'content.string' => 'Konten harus berupa teks.',
+        'image_url.image' => 'File yang diunggah harus berupa gambar.',
+        'image_url.mimes' => 'Format gambar yang diterima hanya jpg, jpeg, png, gif, atau svg.',
+        'image_url.max' => 'Ukuran gambar maksimal 2MB.',
     ]);
     
     // Cari post berdasarkan ID
@@ -132,7 +151,7 @@ class PostController extends Controller
     ]);
 
     // Redirect atau kembalikan response sesuai kebutuhan
-    return redirect()->route('posts.index')->with('success', 'Post updated successfully!');
+    return redirect()->route('posts.index')->with('edited', 'Artikel Berhasil Diperbarui!');
 
     }
 

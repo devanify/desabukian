@@ -36,7 +36,20 @@ class PengurusDesaController extends Controller
             'nama' => 'required|string|max:255',
             'jabatan' => 'required|string|max:255',
             'telepon' => 'nullable',
-            'gambar' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'gambar' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
+        ],[
+            'nama.required' => 'Nama harus diisi.',
+            'nama.string' => 'Nama harus berupa teks.',
+            'nama.max' => 'Nama tidak boleh lebih dari 255 karakter.',
+            'jabatan.required' => 'Jabatan harus diisi.',
+            'jabatan.string' => 'Jabatan harus berupa teks.',
+            'jabatan.max' => 'Jabatan tidak boleh lebih dari 255 karakter.',
+            'status.required' => 'Status harus diisi.',
+            'status.string' => 'Status harus berupa teks.',
+            'gambar.required' => 'Gambar wajib diisi.',
+            'gambar.image' => 'File yang diunggah harus berupa gambar.',
+            'gambar.mimes' => 'Gambar harus berformat JPG, JPEG, PNG, atau GIF.',
+            'gambar.max' => 'Ukuran gambar tidak boleh lebih dari 2MB.',
         ]);
         // Simpan file gambar jika ada
         $gambarPath = null;
@@ -93,6 +106,19 @@ class PengurusDesaController extends Controller
             'telepon' => 'nullable',
             'status' => 'required|string',
             'gambar' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+        ], [
+            'nama.required' => 'Nama harus diisi.',
+            'nama.string' => 'Nama harus berupa teks.',
+            'nama.max' => 'Nama tidak boleh lebih dari 255 karakter.',
+            'jabatan.required' => 'Jabatan harus diisi.',
+            'jabatan.string' => 'Jabatan harus berupa teks.',
+            'jabatan.max' => 'Jabatan tidak boleh lebih dari 255 karakter.',
+            'status.required' => 'Status harus diisi.',
+            'status.string' => 'Status harus berupa teks.',
+            'gambar.nullable' => 'Gambar boleh tidak diisi.',
+            'gambar.image' => 'File yang diunggah harus berupa gambar.',
+            'gambar.mimes' => 'Gambar harus berformat JPG, JPEG, PNG, atau GIF.',
+            'gambar.max' => 'Ukuran gambar tidak boleh lebih dari 2MB.',
         ]);
 
         // Mencari pengurus desa berdasarkan ID

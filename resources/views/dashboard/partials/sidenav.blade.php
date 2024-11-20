@@ -12,7 +12,7 @@
                     <a class="nav-link" href="">PENGUMUMAN</a>
                     <a class="nav-link collapsed" href="{{ route('pengurusdesa.index') }}"> PENGURUS DESA </a>
                     <a class="nav-link collapsed" href="{{ route('galeri.index') }}"> GALERI </a>
-                    <a class="nav-link collapsed" href=""> INFOGRAFIS </a>
+                    <a class="nav-link collapsed" href="{{ route('infografis.index') }}"> INFOGRAFIS </a>
                     
                 </div>
             </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Galeri;
+use App\Models\Infografis;
 use App\Models\PengurusDesa;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,10 @@ class PageController extends Controller
     public function index()
     {
         $pengurus = PengurusDesa::where('status', 'aktif')->get();
-        return view('index', compact('pengurus'));
+        $currentYear = date('Y');
+        $infografis = Infografis::where('tahun', $currentYear)->first();
+
+        return view('index', compact('pengurus','infografis'));
     }
 
     // Menampilkan halaman galeri

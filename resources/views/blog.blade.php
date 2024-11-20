@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Blog Desa Bukian</title>
+    <title> Artikel Desa Bukian</title>
     <link rel="icon" href="{{ asset('assets/image/favico/favicon.ico') }}" type="image/x-icon">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
@@ -31,7 +31,7 @@
                 <li class="inline-flex items-center">
                     <a class="flex items-center text-bold text-gray-900 hover:text-blue-600 focus:outline-none focus:text-blue-600"
                         href="#">
-                        Blog
+                        Artikel
                     </a>
                 </li>
             </ol>
@@ -41,7 +41,7 @@
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto mb-[100px]">
     <!-- Title -->
     <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
-      <h2 class="text-2xl font-bold md:text-4xl md:leading-tight">Blog Desa Bukian</h2>
+      <h2 class="text-2xl font-bold md:text-4xl md:leading-tight">Artikel Desa Bukian</h2>
       <p class="mt-1 text-gray-600">Temukan tulisan menarik dari desa bukian.</p>
     </div>
     <!-- End Title -->

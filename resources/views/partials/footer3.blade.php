@@ -34,13 +34,10 @@
                   <a class="text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 block pb-2 text-sm" href="/sejarah">Sejarah</a>
                 </li>
                 <li>
-                  <a class="text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 block pb-2 text-sm" href="/blog">Blog</a>
+                  <a class="text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 block pb-2 text-sm" href="/blog">Artikel</a>
                 </li>
                 <li>
                   <a class="text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 block pb-2 text-sm" href="/galeri">Galery</a>
-                </li>
-                <li>
-                  <a class="text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 block pb-2 text-sm" href="#aparatur">Aparatur Desa</a>
                 </li>
               </ul>
             </div>

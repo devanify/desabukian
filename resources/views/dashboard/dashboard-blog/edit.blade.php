@@ -20,18 +20,28 @@
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" class="form-control" id="title" name="title" maxlength="255" value="{{ old('title', $post->title) }}" required>
+                        @error('title')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Content</label>
                         <!-- Div yang akan digunakan oleh Quill -->
                         <div id="editor" style="height: 200px;"></div>
                         <input type="hidden" name="content" id="content" value="{{ old('content', $post->content) }}">
+                        @error('content')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="image_url" class="form-label">Upload Image</label>
                         <br>
                         <img src="{{ asset('assets/image/posts/'.$post->image_url) }}" alt="" height="100px" class="mt-3 mb-3">
                         <input type="file" class="form-control" id="image_url" name="image_url" accept="image/*" value="{{ old('image_url', $post->image_url) }}">
+                        <p class="mt-1 text-secondary">Ukuran Gambar Maksimal 2MB</p>
+                        @error('image_url')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <button type="submit" class="btn btn-primary">Buat Post</button>
