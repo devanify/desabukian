@@ -1,14 +1,14 @@
-<div class="bg-gray-100 h-screen" id="aparatur">
+<div class="bg-gray-100" >
     <!-- Team -->
-    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto bg-gray-100">
+    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto bg-gray-100" id="aparatur">
         <!-- Title -->
         <div class="max-w-2xl mx-auto text-center mb-5 ">
-            <h2 class="text-2xl font-bold md:text-4xl md:leading-tight" >Aparatur</h2>
+            <h2 class="text-2xl font-bold md:text-4xl md:leading-tight mt-10" >Aparatur</h2>
             <p class="mt-1 text-gray-600">Desa Bukian</p>
         </div>
         <!-- End Title -->
 
-        <div data-hs-carousel='{ "loadingClasses": "opacity-0", "isAutoPlay": true, "dotsItemClasses": "hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer","slidesQty": { "xs": 1, "lg": 3 }}' class="relative">
+        <div data-hs-carousel='{ "loadingClasses": "opacity-0", "isAutoPlay": true, "dotsItemClasses": "hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer","slidesQty": { "xs": 1, "md":2, "lg": 3 }}' class="relative">
             <div class="hs-carousel w-full overflow-hidden">
                 <div class="relative h-[720px] -mx-1">
                     <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap opacity-0 transition-transform duration-700 p-3">
