@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\GaleriController;
-use App\Http\Controllers\InfografisController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\InfografisController;
+use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PengurusDesaController;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
@@ -39,3 +40,10 @@ Route::get('/dashboard/infografis/create',[InfografisController::class, 'create'
 Route::post('/dashboard/infografis/store',[InfografisController::class, 'store'])->name('infografis.store');
 Route::get('/dashboard/infografis/edit/{id}',[InfografisController::class, 'edit'])->name('infografis.edit');
 Route::put('/dashboard/infografis/{id}',[InfografisController::class, 'update'])->name('infografis.update');
+
+Route::get('/dashboard/pengumuman',[PengumumanController::class, 'index'])->name('pengumuman.index');
+Route::get('/dashboard/pengumuman/create',[PengumumanController::class, 'create'])->name('pengumuman.create');
+Route::post('/dashboard/pengumuman/store',[PengumumanController::class, 'store'])->name('pengumuman.store');
+Route::get('/dashboard/pengumuman/edit/{id}',[PengumumanController::class, 'edit'])->name('pengumuman.edit');
+Route::put('/dashboard/pengumuman/{id}',[PengumumanController::class, 'update'])->name('pengumuman.update');
+Route::get('/dashboard/show/{file}', [PengumumanController::class, 'show'])->name('pengumuman.show');

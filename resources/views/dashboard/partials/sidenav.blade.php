@@ -9,7 +9,7 @@
                         Dashboard
                     </a>
                     <a class="nav-link" href="{{ route('posts.index') }}">ARTIKEL</a>
-                    <a class="nav-link" href="">PENGUMUMAN</a>
+                    <a class="nav-link" href="{{ route('pengumuman.index') }}">PENGUMUMAN</a>
                     <a class="nav-link collapsed" href="{{ route('pengurusdesa.index') }}"> PENGURUS DESA </a>
                     <a class="nav-link collapsed" href="{{ route('galeri.index') }}"> GALERI </a>
                     <a class="nav-link collapsed" href="{{ route('infografis.index') }}"> INFOGRAFIS </a>
