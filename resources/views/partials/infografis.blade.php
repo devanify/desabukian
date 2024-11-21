@@ -31,7 +31,7 @@
         <div class="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5">
           <!-- Icon -->
           <div class="flex justify-center items-center size-15 mx-auto">
-            <img src="{{ asset('assets/image/family.png') }}" alt="" class="w-14 h-17" >
+            <img src="{{ asset('assets/image/family.png') }}" alt="" class="w-16 h-16" >
           </div>
           <!-- End Icon -->
     
