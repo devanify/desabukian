@@ -80,7 +80,7 @@
             </div>
         @endforeach
     </div>
-    @include('partials.footer3')
+    @include('partials.footer')
 </body>
 
 </html>

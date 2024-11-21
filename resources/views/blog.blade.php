@@ -124,5 +124,5 @@
   </div>
   </div>
   <!-- End Card Blog -->
-    @include('partials.footer3')
+    @include('partials.footer')
 </body>

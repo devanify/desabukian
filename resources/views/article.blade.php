@@ -59,5 +59,5 @@
         </div>
     </div>
     <!-- End Blog Article -->
-    @include('partials.footer3')
+    @include('partials.footer')
 </body>
