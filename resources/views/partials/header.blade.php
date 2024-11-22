@@ -53,9 +53,9 @@
           </div>
           <!-- End Dropdown -->
 
-          <a class="font-medium text-base {{ request()->is('sejarah') ? 'text-blue-700' : 'text-gray-600 hover:text-gray-400' }}" href="/sejarah">Sejarah </a>
-          <a class="font-medium text-base {{ request()->is('galeri') ? 'text-blue-700' : 'text-gray-600 hover:text-gray-400' }}" href="/galeri">Galeri </a>
-          <a class="font-medium text-base {{ request()->is('blog') ? 'text-blue-700' : 'text-gray-600 hover:text-gray-400' }}" href="/blog">Artikel </a>
+          <a class="font-medium text-base {{ request()->is('sejarah') ? 'text-blue-700' : 'text-gray-600 hover:text-gray-400' }}" href="{{ route('sejarah') }}">Sejarah </a>
+          <a class="font-medium text-base {{ request()->is('galeri') ? 'text-blue-700' : 'text-gray-600 hover:text-gray-400' }}" href="{{ route('gallery') }}">Galeri </a>
+          <a class="font-medium text-base {{ request()->is('blog') ? 'text-blue-700' : 'text-gray-600 hover:text-gray-400' }}" href="{{ route('artikel') }}">Artikel </a>
         </div>
       </div>
     </nav>

@@ -19,8 +19,8 @@
             <ol class="flex items-center whitespace-nowrap">
                 <li class="inline-flex items-center">
                     <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600"
-                        href="{{ route('blog') }}">
-                        Blog
+                        href="{{ route('artikel') }}">
+                        Arikel
                 </a>
                     </svg>
                 </li>

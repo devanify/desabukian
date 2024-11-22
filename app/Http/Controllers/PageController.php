@@ -8,7 +8,9 @@ use App\Models\Galeri;
 use App\Models\Infografis;
 use App\Models\Pengumuman;
 use App\Models\PengurusDesa;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -19,7 +21,7 @@ class PageController extends Controller
         $currentYear = date('Y');
         $infografis = Infografis::where('tahun', $currentYear)->first();
 
-        return view('index', compact('pengurus','infografis'));
+        return view('index', compact('pengurus', 'infografis'));
     }
 
     // Menampilkan halaman galeri
@@ -50,14 +52,8 @@ class PageController extends Controller
         return view('sejarah');
     }
 
-    // Menampilkan halaman login
-    public function login()
-    {
-        return view('login');
-    }
-
     // Menampilkan halaman blog
-    public function blog()
+    public function artikel()
     {
         $post = Post::paginate(6);
         // $post = Post::all();
@@ -82,10 +78,46 @@ class PageController extends Controller
 
     public function dashbaord()
     {
+        $user = auth()->user(); // Mendapatkan data user yang sedang login
+
         // Ambil data jumlah dari tabel terkait
         $totalArtikel = Post::count(); // Menghitung jumlah artikel
         $totalPengumuman = Pengumuman::count(); // Menghitung jumlah pengumuman
         $totalGaleri = Galeri::count(); // Menghitung jumlah galeri
-        return view('dashboard.dashboard2', compact('totalArtikel', 'totalPengumuman','totalGaleri'));
+        return view('dashboard.dashboard-user.dashboard', compact('totalArtikel', 'totalPengumuman', 'totalGaleri','user'));
+    }
+    public function userEdit()
+    {
+        $user = auth()->user(); // Mendapatkan data user yang sedang login
+
+        return view('dashboard.dashboard-user.userUpdate', compact('user'));
+    }
+    public function userUpdate(Request $request)
+    {
+
+        // dd($request);
+        $request ->validate([
+            'name' => 'required|string|max:255',
+            'password' => 'nullable|string|min:8',
+            'confirm_password'=> 'required_with:password|same:password'
+        ], [
+            'name.required' => 'Nama wajib diisi.',
+            'name.string' => 'Nama harus berupa teks.',
+            'name.max' => 'Nama tidak boleh lebih dari 255 karakter.',
+            'password.nullable' => 'Password bersifat opsional.',
+            'password.string' => 'Password harus berupa teks.',
+            'password.min' => 'Password harus memiliki minimal 8 karakter.',
+            'confirm_password.required_with' => 'Konfirmasi password harus diisi jika password diisi.',
+            'confirm_password.same' => 'Konfirmasi password harus sama dengan password.',
+        ]);
+
+        $data = [
+            'name' => $request->name,
+            'password' => $request->password ? bcrypt($request->password): Auth::user()->password
+        ];
+
+        User::where('id', Auth::user()->id)->update($data);
+
+        return redirect()->route('dashboard')->with('edited', "Data berhasil diperbarui");
     }
 }

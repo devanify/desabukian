@@ -28,7 +28,20 @@
             text: '{{ session('edited') }}'
         });
    @endif
-
+   @if(session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Selamat Datang',
+            text: "{{ session('success') }}",
+        });
+    @endif
+    @if(session('Logged'))
+        Swal.fire({
+            icon: 'info',
+            title: 'Selamat Datang',
+            text: "{{ session('Logged') }}",
+        });
+    @endif
     
 </script>
     crossorigin="anonymous"></script>
