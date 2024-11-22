@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Galeri;
 use App\Models\Infografis;
+use App\Models\Pengumuman;
 use App\Models\PengurusDesa;
 use Illuminate\Http\Request;
 
@@ -81,6 +82,10 @@ class PageController extends Controller
 
     public function dashbaord()
     {
-        return view('dashboard.dashboard');
+        // Ambil data jumlah dari tabel terkait
+        $totalArtikel = Post::count(); // Menghitung jumlah artikel
+        $totalPengumuman = Pengumuman::count(); // Menghitung jumlah pengumuman
+        $totalGaleri = Galeri::count(); // Menghitung jumlah galeri
+        return view('dashboard.dashboard2', compact('totalArtikel', 'totalPengumuman','totalGaleri'));
     }
 }

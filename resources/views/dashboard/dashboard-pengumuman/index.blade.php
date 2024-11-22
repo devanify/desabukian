@@ -43,7 +43,7 @@
                                 </button>
                             @elseif($extension === 'pdf')
                                 <!-- Jika file adalah PDF -->
-                                <button onclick="window.location.href='{{ route('pengumuman.show', ['file' => $p->media]) }}'" class="btn btn-success">
+                                <button onclick="window.location.href='{{ route('pengumuman.show', ['file' => $p->media]) }}'" class="btn btn-success my-1">
                                     Buka PDF
                                 </button>
                             @endif

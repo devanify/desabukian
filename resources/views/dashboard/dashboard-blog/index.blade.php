@@ -3,7 +3,7 @@
 <div class="container-fluid px-4">
     <h1 class="mt-4">Dashboard</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item active">Artikel</li>
     </ol>
 
     <button class="btn btn-success mb-3">
@@ -12,7 +12,7 @@
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
-            DataTable Example
+            DataTable Artikel
         </div>
         <div class="card-body">
             <table id="datatablesSimple">
