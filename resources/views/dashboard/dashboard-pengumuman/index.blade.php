@@ -19,6 +19,7 @@
                 <thead>
                     <tr>
                         <th class="col-2">NO</th>
+                        <th>Tanggal Publikasi</th>
                         <th>Judul</th>
                         <th>Aksi</th>
                     </tr>
@@ -28,7 +29,8 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $p->judul }}</td>
-                        <td class="d-flex justify-content-center align-items-center text-center">
+                        <td>{{ \Carbon\Carbon::parse($p->tanggal_publikasi)->format('d-m-Y') }}</td>
+                        <td>
                             @php
                                 $extension = pathinfo($p->media, PATHINFO_EXTENSION);
                             @endphp

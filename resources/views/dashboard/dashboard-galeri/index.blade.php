@@ -30,7 +30,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td><img src="{{asset('assets/image/galeri/'.$g->image_url) }}" alt="" height="200px"></td>
                         <td>{{ $g->description }}</td> 
-                        <td><a class="btn btn-warning" href="{{ route('galeri.edit',['id'=>$g->id]) }}">UPDATE</a></td>
+                        <td><a class="btn btn-warning text-white" href="{{ route('galeri.edit',['id'=>$g->id]) }}">UPDATE</a></td>
                     </tr>
                     @endforeach
                     

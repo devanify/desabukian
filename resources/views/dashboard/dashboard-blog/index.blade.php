@@ -33,7 +33,7 @@
                         <td>
                             <img src="{{asset('assets/image/posts/'.$p->image_url) }}" alt="" height="100px"></td>
                         <td> {{ substr(strip_tags($p->content), 0, 100) }}...</td>
-                        <td><a class="btn btn-warning" href="{{ route('posts.edit',['id'=>$p->id]) }}">UPDATE</a></td>
+                        <td><a class="btn btn-warning text-white" href="{{ route('posts.edit',['id'=>$p->id]) }}">UPDATE</a></td>
                     </tr>
                     @endforeach
                     

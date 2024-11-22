@@ -41,7 +41,7 @@
                                     </td>
                                 @endif
                                 <td>
-                                    <a class="btn btn-warning" href="{{ route('pengurusdesa.edit',['id'=>$p->id]) }}">UPDATE</a>
+                                    <a class="btn btn-warning text-white" href="{{ route('pengurusdesa.edit',['id'=>$p->id]) }}">UPDATE</a>
                                 </td>
                             </tr>
                         @endforeach

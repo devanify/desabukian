@@ -14,12 +14,13 @@
                 Data Infografis
             </div>
             <div class="card-body">
-                <form action="{{ route('infografis.update'.) }}" method="POST">
+                <form action="{{ route('infografis.update',['id'=>$info->id]) }}" method="POST">
                     @csrf
+                    @method("PUT")
                     <div class="mb-3">
                         <label for="description" class="form-label">Tahun</label>
                         <input type="number" class="form-control" id="tahun" name="tahun" maxlength="255"
-                            value="{{ old('tahun') }}" required>
+                            value="{{ old('tahun', $info->tahun) }}" required>
                         @error('tahun')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -27,7 +28,7 @@
                     <div class="mb-3">
                         <label for="description" class="form-label">Jumlah Penduduk</label>
                         <input type="number" class="form-control" id="jumlah_penduduk" name="jumlah_penduduk"
-                            maxlength="255" value="{{ old('jumlah_penduduk') }}" required>
+                            maxlength="255" value="{{ old('jumlah_penduduk',$info->jumlah_penduduk) }}" required>
                         @error('jumlah_penduduk')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -35,7 +36,7 @@
                     <div class="mb-3">
                         <label for="description" class="form-label">Jumlah KK</label>
                         <input type="number" class="form-control" id="jumlah_kk" name="jumlah_kk" maxlength="255"
-                            value="{{ old('jumlah_kk') }}" required>
+                            value="{{ old('jumlah_kk', $info->jumlah_kk) }}" required>
                         @error('jumlah_kk')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -43,7 +44,7 @@
                     <div class="mb-3">
                         <label for="description" class="form-label">Jumlah Pria</label>
                         <input type="number" class="form-control" id="jumlah_pria" name="jumlah_pria" maxlength="255"
-                            value="{{ old('jumlah_pria') }}" required>
+                            value="{{ old('jumlah_pria', $info->jumlah_pria) }}" required>
                         @error('jumlah_pria')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -51,7 +52,7 @@
                     <div class="mb-3">
                         <label for="description" class="form-label">Jumlah Perempuan</label>
                         <input type="number" class="form-control" id="jumlah_perempuan" name="jumlah_perempuan"
-                            maxlength="255" value="{{ old('jumlah_perempuan') }}" required>
+                            maxlength="255" value="{{ old('jumlah_perempuan', $info->jumlah_perempuan) }}" required>
                         @error('jumlah_perempuan')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror

@@ -91,7 +91,8 @@ class PengumumanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $pengumuman = Pengumuman::findOrFail($id);
+        return view("dashboard.dashboard-pengumuman.update", compact("pengumuman"));
     }
 
     /**
@@ -99,9 +100,48 @@ class PengumumanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Validasi input dengan pesan error kustom
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'media' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,pdf|max:2048', // Media bisa berupa gambar atau file
+            'tanggal_publikasi' => 'required|date',
+        ], [
+            'judul.required' => 'Judul pengumuman harus diisi.',
+            'judul.string' => 'Judul pengumuman harus berupa teks.',
+            'judul.max' => 'Judul pengumuman maksimal 255 karakter.',
+            'media.file' => 'Format media yang diunggah tidak valid.',
+            'media.mimes' => 'Media harus berupa gambar dengan format jpeg, png, jpg, gif, svg atau file pdf.',
+            'media.max' => 'Ukuran media maksimal 2MB.',
+            'tanggal_publikasi.required' => 'Tanggal publikasi harus diisi.',
+            'tanggal_publikasi.date' => 'Tanggal publikasi tidak valid.',
+        ]);
+        // Cari pengumuman berdasarkan ID
+        $pengumuman = Pengumuman::findOrFail($id);
+        // Periksa jika ada file media baru
+        $mediaPath = $pengumuman->media; // Default tetap dengan media lama
+        if ($request->hasFile('media')) {
+            // Hapus file lama jika ada
+            if ($pengumuman->media && file_exists(public_path('assets/image/pengumuman/' . $pengumuman->media))) {
+                unlink(public_path('assets/image/pengumuman/' . $pengumuman->media));  // Menghapus file lama
+            }
+            // Ambil file baru dan format nama file
+            $file = $request->file('media');
+            $formattedName = str_replace(' ', '_', $request->judul) . '-' . (string) Str::uuid() . '.' . $file->extension();
+            // Pindahkan file baru ke folder publik
+            $file->move(public_path('assets/image/pengumuman'), $formattedName);
+            // Perbarui media dengan nama file baru
+            $mediaPath = $formattedName;
+        }
+        // Update data pengumuman termasuk media (jika ada file baru) menggunakan update()
+        $pengumuman->update([
+            'judul' => $request->judul,
+            'tanggal_publikasi' => $request->tanggal_publikasi,
+            'media' => $mediaPath,  // Menggunakan media yang baru atau media lama
+        ]);
+        // Redirect dengan pesan sukses
+        return redirect()->route('pengumuman.index')->with('edited', 'Pengumuman berhasil diperbarui!');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      */

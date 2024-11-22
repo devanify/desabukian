@@ -37,7 +37,7 @@
                                 <td>{{ $i->jumlah_pria }}</td>
                                 <td>{{ $i->jumlah_perempuan }}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="{{ route('infografis.edit',['id'=>$i->id]) }}">UPDATE</a>
+                                    <a class="btn btn-warning text-white" href="{{ route('infografis.edit',['id'=>$i->id]) }}">UPDATE</a>
                                 </td>
                             </tr>
                         @endforeach

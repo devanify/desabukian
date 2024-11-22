@@ -85,7 +85,8 @@ class InfografisController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $info = Infografis::findOrFail($id);
+        return view('dashboard.dashboard-infografis.edit', compact('info'));
     }
 
     /**
@@ -93,7 +94,43 @@ class InfografisController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'tahun' => 'required|numeric|digits:4|min:1900|max:' . date('Y'),
+            'jumlah_penduduk' => 'required|numeric|min:1',
+            'jumlah_kk' => 'required|numeric|min:1',
+            'jumlah_pria' => 'required|numeric|min:0',
+            'jumlah_perempuan' => 'required|numeric|min:0',
+        ], [
+            'tahun.required' => 'Tahun harus diisi.',
+            'tahun.numeric' => 'Tahun harus berupa angka.',
+            'tahun.digits' => 'Tahun harus terdiri dari 4 digit.',
+            'tahun.min' => 'Tahun tidak boleh lebih kecil dari 1900.',
+            'tahun.max' => 'Tahun tidak boleh lebih besar dari tahun sekarang.',
+            'jumlah_penduduk.required' => 'Jumlah Penduduk harus diisi.',
+            'jumlah_penduduk.numeric' => 'Jumlah Penduduk harus berupa angka.',
+            'jumlah_penduduk.min' => 'Jumlah Penduduk tidak boleh kurang dari 1.',
+            'jumlah_kk.required' => 'Jumlah KK harus diisi.',
+            'jumlah_kk.numeric' => 'Jumlah KK harus berupa angka.',
+            'jumlah_kk.min' => 'Jumlah KK tidak boleh kurang dari 1.',
+            'jumlah_pria.required' => 'Jumlah Pria harus diisi.',
+            'jumlah_pria.numeric' => 'Jumlah Pria harus berupa angka.',
+            'jumlah_pria.min' => 'Jumlah Pria tidak boleh kurang dari 0.',
+            'jumlah_perempuan.required' => 'Jumlah Perempuan harus diisi.',
+            'jumlah_perempuan.numeric' => 'Jumlah Perempuan harus berupa angka.',
+            'jumlah_perempuan.min' => 'Jumlah Perempuan tidak boleh kurang dari 0.',
+        ]);   
+
+        $info = Infografis::findOrFail($id);
+
+        $info->update([
+            'tahun'=>$request->tahun,
+            'jumlah_penduduk'=> $request->jumlah_penduduk,
+            'jumlah_kk'=>$request->jumlah_kk,
+            'jumlah_perempuan'=>$request->jumlah_perempuan,
+            'jumlah_pria'=>$request->jumlah_pria
+         ]);
+
+        return redirect()->route('infografis.index')->with('edited', 'Data infografis Penduduk berhasil diperbarui');
     }
 
     /**
