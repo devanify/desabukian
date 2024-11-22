@@ -86,12 +86,11 @@ class UserController extends Controller
     public function doResetPassword(Request $request){
         $request ->validate([
             'password' => 'required|string|min:8',
-            'confirm_password'=> 'required_with:password|same:password'
+            'confirm_password'=> 'same:password'
         ], [
             'password.required' => 'Password wajib diisi.',
             'password.string' => 'Password harus berupa teks.',
             'password.min' => 'Password harus memiliki minimal 8 karakter.',
-            'confirm_password.required_with' => 'Konfirmasi password harus diisi jika password diisi.',
             'confirm_password.same' => 'Konfirmasi password harus sama dengan password.',
         ]);
 
