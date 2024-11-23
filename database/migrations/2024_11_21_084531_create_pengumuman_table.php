@@ -15,6 +15,8 @@ return new class extends Migration
                 $table->id();
                 $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Relasi ke users [Jika pengguna dihapus, semua pengumuman yang dibuat oleh pengguna tersebut juga akan dihapus otomatis.]
                 $table->string('judul'); // Judul pengumuman
+                $table->string('slug', 255)->unique();
+                $table->text('keterangan');
                 $table->string('media'); // File gambar atau dokumen (path)
                 $table->timestamp('tanggal_publikasi'); // Tanggal publikasi
                 $table->timestamps(); // created_at dan updated_at

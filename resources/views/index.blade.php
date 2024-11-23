@@ -19,6 +19,7 @@
 @include('partials.maps')
 @include('partials.youtube')
 @include('partials.infografis')
+@include('partials.announcement')
 @include('partials.footer')
 </body>
 </html>

@@ -31,13 +31,16 @@
               <span class="block uppercase text-gray-100 text-sm font-semibold mb-2">KONTEN WEBSITE</span>
               <ul class="list-unstyled">
                 <li>
-                  <a class="text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 block pb-2 text-sm" href="/sejarah">Sejarah</a>
+                  <a class="text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 block pb-2 text-sm" href="{{ route('sejarah') }}">Sejarah</a>
                 </li>
                 <li>
-                  <a class="text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 block pb-2 text-sm" href="/blog">Artikel</a>
+                  <a class="text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 block pb-2 text-sm" href="{{ route('artikel') }}">Artikel</a>
                 </li>
                 <li>
-                  <a class="text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 block pb-2 text-sm" href="/galeri">Galery</a>
+                  <a class="text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 block pb-2 text-sm" href="{{ route('gallery') }}">Galery</a>
+                </li>
+                <li>
+                  <a class="text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 block pb-2 text-sm" href="{{ route('pengumuman') }}">Pengumuman</a>
                 </li>
               </ul>
             </div>

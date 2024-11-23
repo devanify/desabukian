@@ -33,6 +33,7 @@ class PengumumanController extends Controller
         // Validasi input dengan pesan error kustom
         $request->validate([
             'judul' => 'required|string|max:255',
+            'keterangan' => 'required|string',
             'media' => 'required|file|mimes:jpeg,png,jpg,gif,svg,pdf|max:2048', // Media bisa berupa gambar atau file
             'tanggal_publikasi' => 'required|date',
         ], [
@@ -40,6 +41,8 @@ class PengumumanController extends Controller
             'judul.required' => 'Judul pengumuman harus diisi.',
             'judul.string' => 'Judul pengumuman harus berupa teks.',
             'judul.max' => 'Judul pengumuman maksimal 255 karakter.',
+            'keterangan.required' => 'Keterangan pengumuman harus diisi.',
+            'keterangan.string' => 'Keterangan pengumuman harus berupa teks.',
             'media.required' => 'Media (foto atau video) harus diunggah.',
             'media.file' => 'Format media yang diunggah tidak valid.',
             'media.mimes' => 'Media harus berupa gambar dengan format jpeg, png, jpg, gif, svg atau file pdf.',
@@ -70,6 +73,8 @@ class PengumumanController extends Controller
         Pengumuman::create([
             'judul' => $request->judul,
             'media' => $mediaPath,  // Menyimpan path nama file media
+            'slug' => Str::slug($request->judul),
+            'keterangan' => $request->keterangan,
             'user_id' => 1, // ID pengguna yang login
             'tanggal_publikasi' => $request->tanggal_publikasi,
         ]);
@@ -135,13 +140,15 @@ class PengumumanController extends Controller
         // Update data pengumuman termasuk media (jika ada file baru) menggunakan update()
         $pengumuman->update([
             'judul' => $request->judul,
+            'slug' => Str::slug($request->judul),
+            'keterangan' => $request->keterangan,
             'tanggal_publikasi' => $request->tanggal_publikasi,
             'media' => $mediaPath,  // Menggunakan media yang baru atau media lama
         ]);
         // Redirect dengan pesan sukses
         return redirect()->route('pengumuman.index')->with('edited', 'Pengumuman berhasil diperbarui!');
     }
-    
+
     /**
      * Remove the specified resource from storage.
      */

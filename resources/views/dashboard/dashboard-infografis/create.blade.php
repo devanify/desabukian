@@ -14,7 +14,7 @@
                 Data Infografis
             </div>
             <div class="card-body">
-                <form action="{{ route('infografis.update'.) }}" method="POST">
+                <form action="{{ route('infografis.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="description" class="form-label">Tahun</label>

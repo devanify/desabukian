@@ -12,6 +12,8 @@ class Pengumuman extends Model
     // Menentukan kolom yang dapat diisi (fillable)
     protected $fillable = [
         'judul',
+        'slug',
+        'keterangan',
         'media',
         'user_id', // Relasi dengan pengguna (admin, penulis)
         'tanggal_publikasi'

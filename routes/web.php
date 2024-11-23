@@ -14,6 +14,8 @@ Route::get('/galeri', [PageController::class, 'gallery'])->name('gallery');
 Route::get('/sejarah', [PageController::class, 'sejarah'])->name('sejarah');
 Route::get('/artikel', [PageController::class, 'artikel'])->name('artikel');
 Route::get('/artikel/{slug}', [PageController::class, 'article'])->name('article');
+Route::get('/pengumuman', [PageController::class, 'pengumuman'])->name('pengumuman');
+Route::get('/pengumuman/{slug}', [PageController::class, 'pengumumanview'])->name('pengumumanview');
 Route::get('/forgotpassword', [UserController::class, 'forgotpassword'])->name('forgotpassword');
 Route::post('/forgotpassword', [UserController::class, 'doforgotpassword'])->name('doforgotpassword');
 Route::get('/resetpassword/{token}', [UserController::class, 'resetpassword'])->name('resetpassword');

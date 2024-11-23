@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         // Menambahkan seeder PengurusDesaSeeder
         $this->call(UserSeeder::class);
         $this->call(PengurusDesaSeeder::class);
+        $this->call(InfografisSeeder::class);
 
         User::factory()->create([
             'name' => 'Test User',

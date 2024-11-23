@@ -19,7 +19,7 @@
             <ol class="flex items-center whitespace-nowrap">
                 <li class="inline-flex items-center">
                     <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600"
-                        href="#">
+                        href="{{ route('home') }}">
                         Home
                     </a>
                     <svg class="shrink-0 mx-2 size-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24"

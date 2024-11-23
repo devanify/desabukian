@@ -56,6 +56,7 @@
           <a class="font-medium text-base {{ request()->is('sejarah') ? 'text-blue-700' : 'text-gray-600 hover:text-gray-400' }}" href="{{ route('sejarah') }}">Sejarah </a>
           <a class="font-medium text-base {{ request()->is('galeri') ? 'text-blue-700' : 'text-gray-600 hover:text-gray-400' }}" href="{{ route('gallery') }}">Galeri </a>
           <a class="font-medium text-base {{ request()->is('artikel*') ? 'text-blue-700' : 'text-gray-600 hover:text-gray-400' }}" href="{{ route('artikel') }}">Artikel </a>
+          <a class="font-medium text-base {{ request()->is('pengumuman*') ? 'text-blue-700' : 'text-gray-600 hover:text-gray-400' }}" href="{{ route('pengumuman') }}">Pengumuman </a>
         </div>
       </div>
     </nav>

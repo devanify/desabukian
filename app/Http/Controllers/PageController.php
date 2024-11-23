@@ -17,11 +17,12 @@ class PageController extends Controller
     // Menampilkan halaman utama (Index)
     public function index()
     {
+        $pengumuman = Pengumuman::latest()->take(5)->get();
         $pengurus = PengurusDesa::where('status', 'aktif')->get();
         $currentYear = date('Y');
         $infografis = Infografis::where('tahun', $currentYear)->first();
 
-        return view('index', compact('pengurus', 'infografis'));
+        return view('index', compact('pengurus', 'infografis','pengumuman'));
     }
 
     // Menampilkan halaman galeri
@@ -119,5 +120,18 @@ class PageController extends Controller
         User::where('id', Auth::user()->id)->update($data);
 
         return redirect()->route('dashboard')->with('edited', "Data berhasil diperbarui");
+    }
+
+    public function pengumuman(){
+        $pengumuman = Pengumuman::paginate(3);
+        return view('pengumuman', compact('pengumuman'));
+    }
+
+    public function pengumumanview($slug)
+    {
+        // Cari artikel berdasarkan slug
+        $pengumuman = Pengumuman::where('slug', $slug)->firstOrFail();
+        // Tampilkan view dengan data artikel
+        return view('pengumuman_view', compact('pengumuman'));
     }
 }

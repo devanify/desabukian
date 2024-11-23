@@ -1,4 +1,7 @@
 @extends('dashboard.dashboard')
+@section('header-link')
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+@endsection
 @section('content')
     <div class="container-fluid px-4">
         <h1 class="mt-4">Dashboard</h1>
@@ -19,6 +22,36 @@
                         <input type="text" class="form-control" placeholder="masukkan judul pengumuman" name="judul"
                             value="{{ old('judul', $pengumuman->judul) }}">
                         @error('judul')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="keterangan" class="form-label">Keterangan</label>
+                        <!-- Toolbar Quill Kustom -->
+                        <div id="toolbar">
+                            <span class="ql-formats">
+                                <select class="ql-header">
+                                    <option value="1">Heading 1</option>
+                                    <option value="2">Heading 2</option>
+                                    <option selected>Normal</option>
+                                </select>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-bold"></button> <!-- Tombol Bold -->
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-list" value="ordered"></button> <!-- Ordered List -->
+                                <button class="ql-list" value="bullet"></button> <!-- Bullet List -->
+                            </span>
+                        </div>
+
+                        <!-- Editor Quill -->
+                        <div id="editor" style="height: 200px;"></div>
+
+                        <!-- Hidden input untuk menyimpan konten editor -->
+                        <input type="hidden" name="keterangan" id="keterangan" value="{{ old('keterangan', $pengumuman->keterangan) }}">
+
+                        @error('keterangan')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
@@ -57,4 +90,38 @@
         </div>
     </div>
     </main>
+@endsection
+@section('script')
+    <!-- Include the Quill library -->
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+    <!-- Initialize Quill editor -->
+    <script>
+        const quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: '#toolbar' // Menggunakan toolbar kustom
+            }
+        });
+    
+        // Memasukkan konten yang sudah ada ke dalam Quill saat halaman pertama kali dimuat
+        @if (old('keterangan'))
+            quill.root.innerHTML = `{!! old('keterangan') !!}`;
+        @elseif ($pengumuman->keterangan)
+            quill.root.innerHTML = `{!! $pengumuman->keterangan !!}`;
+        @endif
+    
+        document.querySelector('form').onsubmit = function() {
+            var content = quill.root.innerHTML;
+    
+            // Periksa apakah konten kosong atau hanya berisi <p><br></p>
+            if (content === "<p><br></p>" || content.trim() === "") {
+                content = ""; // Atau null jika Anda ingin menyimpan null
+                alert("Keterangan tidak boleh kosong!"); // Tambahkan alert untuk memberi tahu pengguna
+            }
+    
+            // Menyimpan konten ke input hidden
+            document.querySelector('#keterangan').value = content;
+        };
+    </script>
+    
 @endsection
