@@ -25,6 +25,36 @@
                         @enderror
                     </div>
                     <div class="mb-3">
+                        <label for="content" class="form-label">content</label>
+                        <!-- Toolbar Quill Kustom -->
+                        <div id="toolbar">
+                            <span class="ql-formats">
+                                <select class="ql-header">
+                                    <option value="1">Heading 1</option>
+                                    <option value="2">Heading 2</option>
+                                    <option selected>Normal</option>
+                                </select>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-bold"></button> <!-- Tombol Bold -->
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-list" value="ordered"></button> <!-- Ordered List -->
+                                <button class="ql-list" value="bullet"></button> <!-- Bullet List -->
+                            </span>
+                        </div>
+
+                        <!-- Editor Quill -->
+                        <div id="editor" style="height: 200px;"></div>
+
+                        <!-- Hidden input untuk menyimpan konten editor -->
+                        <input type="hidden" name="content" id="content" value="{{ old('content', $post->content) }}">
+
+                        @error('content')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    {{-- <div class="mb-3">
                         <label for="content" class="form-label">Content</label>
                         <!-- Div yang akan digunakan oleh Quill -->
                         <div id="editor" style="height: 200px;"></div>
@@ -32,7 +62,7 @@
                         @error('content')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
-                    </div>
+                    </div> --}}
                     <div class="mb-3">
                         <label for="image_url" class="form-label">Upload Image</label>
                         <br>
@@ -58,19 +88,31 @@
     <!-- Initialize Quill editor -->
     <script>
         const quill = new Quill('#editor', {
-            theme: 'snow'
+            theme: 'snow',
+            modules: {
+                toolbar: '#toolbar' // Menggunakan toolbar kustom
+            }
         });
+    
         // Memasukkan konten yang sudah ada ke dalam Quill saat halaman pertama kali dimuat
-        @if(old('content'))
+        @if (old('content'))
             quill.root.innerHTML = `{!! old('content') !!}`;
-        @elseif($post->content)
+        @elseif ($post->content)
             quill.root.innerHTML = `{!! $post->content !!}`;
         @endif
-
-        // Menyimpan konten ke input hidden saat formulir disubmit
+    
         document.querySelector('form').onsubmit = function() {
             var content = quill.root.innerHTML;
-            document.querySelector('#content').value = content; // Menyimpan konten editor ke input hidden
+    
+            // Periksa apakah konten kosong atau hanya berisi <p><br></p>
+            if (content === "<p><br></p>" || content.trim() === "") {
+                content = ""; // Atau null jika Anda ingin menyimpan null
+                alert("content tidak boleh kosong!"); // Tambahkan alert untuk memberi tahu pengguna
+            }
+    
+            // Menyimpan konten ke input hidden
+            document.querySelector('#content').value = content;
         };
     </script>
+    
 @endsection

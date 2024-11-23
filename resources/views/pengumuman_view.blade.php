@@ -65,49 +65,48 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    // Menambahkan kelas pada elemen <p>
-    const paragraphs = document.querySelectorAll('.pengumuman-content p');
-    paragraphs.forEach(function(paragraph) {
-        paragraph.classList.add('text-lg', 'text-justify', 'text-gray-800', 'mt-2');
-    });
+            // Menambahkan kelas pada elemen <p>
+            const paragraphs = document.querySelectorAll('.pengumuman-content p');
+            paragraphs.forEach(function(paragraph) {
+                paragraph.classList.add('text-lg', 'text-justify', 'text-gray-800', 'mt-2');
+            });
 
-    // Menangani <ol> dengan data-list="bullet" dan mengubahnya menjadi <ul>
-    const ols = document.querySelectorAll('.pengumuman-content ol');
-    ols.forEach(function(ol) {
-        // Cek apakah ol memiliki data-list="bullet", jika iya, ganti menjadi <ul>
-        if (ol.querySelector('li[data-list="bullet"]')) {
-            // Membuat elemen <ul> baru
-            const ul = document.createElement('ul');
+            // Menangani <ol> dengan data-list="bullet" dan mengubahnya menjadi <ul>
+            const ols = document.querySelectorAll('.pengumuman-content ol');
+            ols.forEach(function(ol) {
+                // Cek apakah ol memiliki data-list="bullet", jika iya, ganti menjadi <ul>
+                if (ol.querySelector('li[data-list="bullet"]')) {
+                    // Membuat elemen <ul> baru
+                    const ul = document.createElement('ul');
 
-            // Menyalin semua anak <li> dari <ol> ke <ul>
-            while (ol.firstChild) {
-                ul.appendChild(ol.firstChild);
-            }
+                    // Menyalin semua anak <li> dari <ol> ke <ul>
+                    while (ol.firstChild) {
+                        ul.appendChild(ol.firstChild);
+                    }
 
-            // Menambahkan kelas yang sesuai pada <ul>
-            ul.classList.add('list-disc', 'ml-6'); // Gunakan list-disc untuk bullet
+                    // Menambahkan kelas yang sesuai pada <ul>
+                    ul.classList.add('list-disc', 'ml-6'); // Gunakan list-disc untuk bullet
 
-            // Ganti <ol> dengan <ul> di DOM
-            ol.replaceWith(ul);
-        } else {
-            // Untuk <ol> yang hanya berisi angka (list-decimal)
-            ol.classList.add('list-decimal', 'ml-6');
-        }
-    });
+                    // Ganti <ol> dengan <ul> di DOM
+                    ol.replaceWith(ul);
+                } else {
+                    // Untuk <ol> yang hanya berisi angka (list-decimal)
+                    ol.classList.add('list-decimal', 'ml-6');
+                }
+            });
 
-    // Menambahkan kelas pada elemen <li>
-    const lis = document.querySelectorAll('.pengumuman-content li');
-    lis.forEach(function(li) {
-        li.classList.add('ml-4'); // Memberikan margin kiri pada elemen <li>
-    });
+            // Menambahkan kelas pada elemen <li>
+            const lis = document.querySelectorAll('.pengumuman-content li');
+            lis.forEach(function(li) {
+                li.classList.add('ml-4'); // Memberikan margin kiri pada elemen <li>
+            });
 
-    // Menambahkan kelas pada elemen <span>
-    const spans = document.querySelectorAll('.pengumuman-content span');
-    spans.forEach(function(span) {
-        span.classList.add('ql-ui'); // Menambahkan kelas ql-ui pada elemen <span>
-    });
-});
-
+            // Menambahkan kelas pada elemen <span>
+            const spans = document.querySelectorAll('.pengumuman-content span');
+            spans.forEach(function(span) {
+                span.classList.add('ql-ui'); // Menambahkan kelas ql-ui pada elemen <span>
+            });
+        });
     </script>
     <!-- End Blog Article -->
     @include('partials.footer')
