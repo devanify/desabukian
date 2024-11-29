@@ -22,7 +22,7 @@ class PageController extends Controller
         $currentYear = date('Y');
         $infografis = Infografis::where('tahun', $currentYear)->first();
 
-        return view('index', compact('pengurus', 'infografis','pengumuman'));
+        return view('index', compact('pengurus', 'infografis', 'pengumuman'));
     }
 
     // Menampilkan halaman galeri
@@ -30,13 +30,22 @@ class PageController extends Controller
     {
         $year = $request->input('year', Carbon::now()->year);
 
-        // Ambil galeri dan kelompokkan berdasarkan bulan dan tahun
+        // Ambil data Galeri berdasarkan tahun
         $galeri = Galeri::when($year, function ($query) use ($year) {
-            // Jika ada input tahun, filter galeri berdasarkan tahun
             return $query->whereYear('created_at', $year);
-        })->get()->groupBy(function ($date) {
-            // Mengelompokkan berdasarkan bulan dan tahun
-            return Carbon::parse($date->created_at)->format('F Y');
+        })->get();
+
+        // Ambil data Post berdasarkan tahun
+        $post = Post::when($year, function ($query) use ($year) {
+            return $query->whereYear('created_at', $year);
+        })->get();
+
+        // Gabungkan data Galeri dan Post dalam satu koleksi
+        $combinedData = $galeri->concat($post);
+
+        // Kelompokkan berdasarkan bulan dan tahun
+        $groupedData = $combinedData->groupBy(function ($item) {
+            return Carbon::parse($item->created_at)->format('F Y');
         });
 
         // Ambil daftar tahun yang tersedia untuk dropdown filter
@@ -45,8 +54,11 @@ class PageController extends Controller
             ->orderByDesc('year')
             ->pluck('year');
 
-        return view('galery', compact('galeri', 'years'));
+        // Kirimkan data ke tampilan
+        return view('galery', compact('groupedData', 'years'));
     }
+
+
     // Menampilkan halaman sejarah
     public function sejarah()
     {
@@ -85,7 +97,7 @@ class PageController extends Controller
         $totalArtikel = Post::count(); // Menghitung jumlah artikel
         $totalPengumuman = Pengumuman::count(); // Menghitung jumlah pengumuman
         $totalGaleri = Galeri::count(); // Menghitung jumlah galeri
-        return view('dashboard.dashboard-user.dashboard', compact('totalArtikel', 'totalPengumuman', 'totalGaleri','user'));
+        return view('dashboard.dashboard-user.dashboard', compact('totalArtikel', 'totalPengumuman', 'totalGaleri', 'user'));
     }
     public function userEdit()
     {
@@ -97,10 +109,10 @@ class PageController extends Controller
     {
 
         // dd($request);
-        $request ->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
             'password' => 'nullable|string|min:8',
-            'confirm_password'=> 'required_with:password|same:password'
+            'confirm_password' => 'required_with:password|same:password'
         ], [
             'name.required' => 'Nama wajib diisi.',
             'name.string' => 'Nama harus berupa teks.',
@@ -114,7 +126,7 @@ class PageController extends Controller
 
         $data = [
             'name' => $request->name,
-            'password' => $request->password ? bcrypt($request->password): Auth::user()->password
+            'password' => $request->password ? bcrypt($request->password) : Auth::user()->password
         ];
 
         User::where('id', Auth::user()->id)->update($data);
@@ -122,7 +134,8 @@ class PageController extends Controller
         return redirect()->route('dashboard')->with('edited', "Data berhasil diperbarui");
     }
 
-    public function pengumuman(){
+    public function pengumuman()
+    {
         $pengumuman = Pengumuman::paginate(3);
         return view('pengumuman', compact('pengumuman'));
     }
