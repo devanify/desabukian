@@ -73,7 +73,7 @@ class PengumumanController extends Controller
         Pengumuman::create([
             'judul' => $request->judul,
             'media' => $mediaPath,  // Menyimpan path nama file media
-            'slug' => Str::slug($request->judul),
+            'slug' => Str::slug($request->judul) . '-' . Str::random(10), // Membuat slug unik dengan string acak
             'keterangan' => $request->keterangan,
             'user_id' => 1, // ID pengguna yang login
             'tanggal_publikasi' => $request->tanggal_publikasi,
@@ -140,7 +140,7 @@ class PengumumanController extends Controller
         // Update data pengumuman termasuk media (jika ada file baru) menggunakan update()
         $pengumuman->update([
             'judul' => $request->judul,
-            'slug' => Str::slug($request->judul),
+            // 'slug' => Str::slug($request->judul),
             'keterangan' => $request->keterangan,
             'tanggal_publikasi' => $request->tanggal_publikasi,
             'media' => $mediaPath,  // Menggunakan media yang baru atau media lama
