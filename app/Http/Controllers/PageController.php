@@ -66,11 +66,25 @@ class PageController extends Controller
     }
 
     // Menampilkan halaman blog
-    public function artikel()
+    public function artikel(Request $request)
     {
-        $post = Post::paginate(6);
-        // $post = Post::all();
-        return view('blog', compact('post'));
+        $year = $request->input('year', Carbon::now()->year); // Default: tahun sekarang jika tidak ada input
+
+        // Ambil data artikel berdasarkan tahun
+        $post = Post::when($year, function ($query) use ($year) {
+            return $query->whereYear('created_at', $year);
+        })
+        ->orderBy('created_at', 'desc') // Urutkan berdasarkan tanggal terbaru
+        ->paginate(6); // Paginasi 6 artikel per halaman
+
+        // Ambil daftar tahun dari tabel Post untuk dropdown filter
+        $years = Post::selectRaw('YEAR(created_at) as year')
+            ->distinct()
+            ->orderByDesc('year')
+            ->pluck('year');
+
+        // Kirimkan data ke tampilan
+        return view('blog', compact('post', 'years', 'year'));
     }
 
     // Menampilkan halaman artikel
