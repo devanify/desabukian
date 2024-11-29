@@ -75,7 +75,7 @@
                     <!-- Content -->
                     <div class="content">
                         <h2 class="title text-xl font-bold mb-2">
-                            <a href="{{ route('pengumuman.show', $p->id) }}" class="text-gray-800 hover:underline">
+                            <a href="{{ route('pengumumanview',$p->slug) }}" class="text-gray-800 hover:underline">
                                 {{ $p->judul }}
                             </a>
                         </h2>

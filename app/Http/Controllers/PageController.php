@@ -17,7 +17,7 @@ class PageController extends Controller
     // Menampilkan halaman utama (Index)
     public function index()
     {
-        $pengumuman = Pengumuman::latest()->take(5)->get();
+        $pengumuman = Pengumuman::orderBy('tanggal_publikasi', 'desc')->take(5)->get();
         $pengurus = PengurusDesa::where('status', 'aktif')->get();
         $currentYear = date('Y');
         $infografis = Infografis::where('tahun', $currentYear)->first();
@@ -136,7 +136,8 @@ class PageController extends Controller
 
     public function pengumuman()
     {
-        $pengumuman = Pengumuman::paginate(3);
+        // Mengambil data pengumuman terbaru berdasarkan 'tanggal_publikasi' dengan pagination
+        $pengumuman = Pengumuman::orderBy('tanggal_publikasi', 'desc')->paginate(10);
         return view('pengumuman', compact('pengumuman'));
     }
 

@@ -13,7 +13,8 @@ class PengumumanController extends Controller
      */
     public function index()
     {
-        $pengumuman = Pengumuman::all();
+        // Mengambil data pengumuman terbaru
+        $pengumuman = Pengumuman::orderBy('tanggal_publikasi', 'desc')->get();
         return view('dashboard.dashboard-pengumuman.index', compact('pengumuman'));
     }
 

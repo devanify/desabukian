@@ -28,8 +28,8 @@
                     @foreach ($pengumuman as $p )
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $p->judul }}</td>
                         <td>{{ \Carbon\Carbon::parse($p->tanggal_publikasi)->format('d-m-Y') }}</td>
+                        <td>{{ $p->judul}}</td>
                         <td>
                             @php
                                 $extension = pathinfo($p->media, PATHINFO_EXTENSION);
