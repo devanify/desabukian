@@ -76,7 +76,7 @@
             <h3 class="text-xl font-semibold mb-5 mt-5">Kegiatan {{ $monthYear }}</h3>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
                 @foreach ($items as $item)
-                    <div>
+                    <div class="group transition ease-in-out delay-150 hover:gap-7">
                         @php
                             // Tentukan path gambar berdasarkan model
                             $imagePath =
@@ -84,7 +84,7 @@
                                     ? asset('assets/image/galeri/' . $item->image_url)
                                     : asset('assets/image/posts/' . $item->image_url);
                         @endphp
-                        <img class="h-auto max-w-full rounded-lg" src="{{ $imagePath }}" alt="Gallery image" />
+                        <img class="w-full h-52 object-cover rounded-md transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 hover:h-auto hover:px-1 hover:rounded-xl" src="{{ $imagePath }}" alt="Gallery image" />
                         <figcaption class="mt-3 text-sm text-center text-gray-500">
                             {{-- Display description if available --}}
                             {{ $item->description ?? $item->title }}

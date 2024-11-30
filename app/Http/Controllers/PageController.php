@@ -15,14 +15,25 @@ use Illuminate\Support\Facades\Auth;
 class PageController extends Controller
 {
     // Menampilkan halaman utama (Index)
-    public function index()
+    public function index(Request $request)
     {
         $pengumuman = Pengumuman::orderBy('tanggal_publikasi', 'desc')->take(5)->get();
         $pengurus = PengurusDesa::where('status', 'aktif')->get();
-        $currentYear = date('Y');
+        // Ambil tahun dari parameter URL atau gunakan tahun saat ini sebagai default
+        $currentYear = $request->get('year', date('Y'));
+
+        // Cari infografis berdasarkan tahun
         $infografis = Infografis::where('tahun', $currentYear)->first();
 
-        return view('index', compact('pengurus', 'infografis', 'pengumuman'));
+        // Ambil daftar tahun untuk dropdown
+        $years = Infografis::select('tahun')
+            ->distinct()
+            ->orderByDesc('tahun')
+            ->pluck('tahun');
+
+        return view('index', compact('pengurus', 'infografis', 'pengumuman', 'years', 'currentYear'));
+
+        // return view('index', compact('pengurus', 'infografis', 'pengumuman', 'years'));
     }
 
     // Menampilkan halaman galeri
@@ -74,8 +85,8 @@ class PageController extends Controller
         $post = Post::when($year, function ($query) use ($year) {
             return $query->whereYear('created_at', $year);
         })
-        ->orderBy('created_at', 'desc') // Urutkan berdasarkan tanggal terbaru
-        ->paginate(6); // Paginasi 6 artikel per halaman
+            ->orderBy('created_at', 'desc') // Urutkan berdasarkan tanggal terbaru
+            ->paginate(6); // Paginasi 6 artikel per halaman
 
         // Ambil daftar tahun dari tabel Post untuk dropdown filter
         $years = Post::selectRaw('YEAR(created_at) as year')
