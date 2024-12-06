@@ -31,6 +31,13 @@ class PageController extends Controller
             ->orderByDesc('tahun')
             ->pluck('tahun');
 
+        // Jika request adalah AJAX, kembalikan JSON data
+        if ($request->ajax()) {
+            return response()->json([
+                'infografis' => $infografis,
+            ]);
+        }
+
         return view('index', compact('pengurus', 'infografis', 'pengumuman', 'years', 'currentYear'));
 
         // return view('index', compact('pengurus', 'infografis', 'pengumuman', 'years'));
