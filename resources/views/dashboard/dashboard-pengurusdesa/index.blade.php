@@ -41,8 +41,20 @@
                                     </td>
                                 @endif
                                 <td>
-                                    <a class="btn btn-warning text-white" href="{{ route('pengurusdesa.edit',['id'=>$p->id]) }}">UPDATE</a>
+                                    <a class="btn btn-warning text-white"
+                                        href="{{ route('pengurusdesa.edit', ['id' => $p->id]) }}">UPDATE</a>
+                                    <form action="{{ route('pengurusdesa.destroy', $p->id) }}" method="POST"
+                                        style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger text-uppercase delete"
+                                            data-name="{{ $p->nama }}" data-toggle="tooltip"
+                                            data-original-title="Delete">
+                                            Delete
+                                        </button>
+                                    </form>
                                 </td>
+
                             </tr>
                         @endforeach
                     </tbody>

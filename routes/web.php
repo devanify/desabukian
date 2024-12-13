@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function(){
     Route::post('/dashboard/pengurusdesa/store', [PengurusDesaController::class, 'store'])->name('pengurusdesa.store');
     Route::get('/dashboard/pengurusdesa/edit/{id}', [PengurusDesaController::class, 'edit'])->name('pengurusdesa.edit');
     Route::put('/dashboard/pengurusdesa/{id}', [PengurusDesaController::class, 'update'])->name('pengurusdesa.update');
+    Route::delete('/dashboard/pengurusdesa{id}', [PengurusDesaController::class, 'destroy'])->name('pengurusdesa.destroy');
+
     
     Route::get('/dashboard/post',[PostController::class, 'index'])->name('posts.index');
     Route::get('/dashboard/post/create',[PostController::class, 'create'])->name('posts.create');

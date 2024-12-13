@@ -166,8 +166,10 @@ class PengurusDesaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PengurusDesa $pengurusDesa)
+    public function destroy($id)
     {
-        //
+        $pengurusdesa = PengurusDesa::findOrFail($id);
+        $pengurusdesa->delete();
+        return redirect()->route('pengurusdesa.index')->with('success', 'Data berhasil dihapus');
     }
 }
