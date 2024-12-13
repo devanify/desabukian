@@ -10,7 +10,7 @@
                     </h2>
 
                     <!-- Tab Navs -->
-                    <nav class="grid gap-1 mt-5 md:mt-10 text-justify text-gray-600 text-xl" aria-label="Tabs" role="tablist"
+                    <nav class="grid gap-1 mt-5 md:mt-10 text-justify text-gray-600 text-base md:text-lg lg:text-xl" aria-label="Tabs" role="tablist"
                         aria-orientation="vertical">
                         Desa Bukian di Kecamatan Payangan, Gianyar, Bali, merupakan permata tersembunyi yang terkenal
                         dengan keindahan alamnya yang masih alami, iklim yang sejuk, dan kekayaan budaya lokal. Terletak

@@ -13,7 +13,7 @@
                             Video Profile Desa Bukian
                         </h2>
                 
-                            <p class="text-gray-500 ">
+                            <p class="text-gray-500 text-justify text-base md:text-lg lg:text-xl">
                                 Dalam video ini, kamu akan diajak menjelajahi setiap sudut Desa Bukian, mulai dari keindahan alamnya yang menakjubkan hingga kehidupan masyarakatnya yang sederhana namun kaya akan tradisi. Jangan lewatkan kesempatan untuk melihat langsung proses pembuatan kerajinan tangan khas Bali dan mencicipi kuliner lezat yang terbuat dari bahan-bahan segar. </p>
                         
                     </div> 

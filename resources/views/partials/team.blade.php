@@ -4,7 +4,7 @@
         <!-- Title -->
         <div class="max-w-2xl mx-auto text-center mb-5 ">
             <h2 class="text-2xl font-bold md:text-4xl md:leading-tight mt-10" >Aparatur</h2>
-            <p class="mt-1 text-gray-600">Desa Bukian</p>
+            <p class="mt-1 text-gray-600 text-base md:text-lg lg:text-xl">Desa Bukian</p>
         </div>
         <!-- End Title -->
 

@@ -3,9 +3,9 @@
     <!-- Approach -->
     <div class="max-w-5xl px-4 xl:px-0 py-10 lg:pt-20 lg:pb-20 mx-auto">
       <!-- Title -->
-      <div class="max-w-2xl mb-10 lg:mb-14">
-        <h2 class="font-semibold text-2xl md:text-4xl md:leading-tight text-gray-800">VISI</h2>
-        <p class="mt-1 text-gray-600 text-justify">MENYONGSOMG MASA DEPAN DESA BUKIAN YANG LEBIH BAIK DENGAN JALAN MENINGKATKAN PEMBANGUNANDAN KESEJAHTRAAN MASYARAKAT DI SEMUA BIDANG </p>
+      <div class=" mb-10 lg:mb-14">
+        <h2 class="font-semibold text-2xl lg:text-4xl md:text-3xl md:leading-tight text-gray-800 lg:mb-5">VISI</h2>
+        <p class="mt-1 text-gray-600 uppercase text-justify text-base md:text-lg lg:text-xl">menyongsong masa depan desa bukian yang lebih baik dengan jalan meningkatkan pembangunan dan kesejahteraan masyarakat di semua bidang</p>
       </div>
       <!-- End Title -->
   
@@ -20,7 +20,7 @@
         <div>
           <!-- Heading -->
           <div class="mb-4">
-            <h3 class="text-gray-800 text-lg font-medium uppercase">
+            <h3 class="text-gray-800 font-medium uppercase text-xl lg:text-3xl md:text-2xl">
               Misi
             </h3>
           </div>
@@ -31,7 +31,7 @@
             <!-- Icon -->
             <div class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
               <div class="relative z-10 size-8 flex justify-center items-center">
-                <span class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-gray-800 font-semibold text-xs uppercase rounded-full">
+                <span class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-gray-800 font-semibold text-xs uppercase rounded-full md:text-lg lg:text-xl">
                   1
                 </span>
               </div>
@@ -40,8 +40,8 @@
   
             <!-- Right Content -->
             <div class="grow pt-0.5 pb-8 sm:pb-12">
-              <p class="text-sm lg:text-base text-neutral-400">
-                <span class="text-gray-600 text-base">Meningkatkan Kualitas Aparatur Desa:</span>
+              <p class="text-sm md:text-lg lg:text-lg text-neutral-400 text-justify">
+                <span class="text-gray-600 text-base md:text-lg lg:text-lg">Meningkatkan Kualitas Aparatur Desa:</span>
                 Memberdayakan aparatur desa secara optimal untuk meningkatkan kualitas pelayanan masyarakat.
               </p>
             </div>
@@ -54,7 +54,7 @@
             <!-- Icon -->
             <div class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
               <div class="relative z-10 size-8 flex justify-center items-center">
-                <span class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-gray-800 font-semibold text-xs uppercase rounded-full">
+                <span class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-gray-800 font-semibold text-xs uppercase rounded-full md:text-lg lg:text-xl">
                   2
                 </span>
               </div>
@@ -63,8 +63,8 @@
   
             <!-- Right Content -->
             <div class="grow pt-0.5 pb-8 sm:pb-12">
-              <p class="text-sm lg:text-base text-neutral-400">
-                <span class="text-gray-600 text-base">Pemerintahan Desa yang Bersih dan Berwibawa:</span>
+              <p class="text-sm md:text-lg lg:text-lg text-neutral-400 text-justify">
+                <span class="text-gray-600 text-base md:text-lg lg:text-lg">Pemerintahan Desa yang Bersih dan Berwibawa:</span>
                 Mewujudkan pemerintahan desa yang bebas dari korupsi dan penyelewengan, dengan transparansi dan tanggung jawab sesuai peraturan.
               </p>
             </div>
@@ -77,7 +77,7 @@
             <!-- Icon -->
             <div class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
               <div class="relative z-10 size-8 flex justify-center items-center">
-                <span class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-gray-800 font-semibold text-xs uppercase rounded-full">
+                <span class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-gray-800 font-semibold text-xs uppercase rounded-full md:text-lg lg:text-xl">
                   3
                 </span>
               </div>
@@ -86,8 +86,8 @@
   
             <!-- Right Content -->
             <div class="grow pt-0.5 pb-8 sm:pb-12">
-              <p class="text-sm md:text-base text-neutral-400">
-                <span class="text-gray-600 text-base">Peningkatan Infrastruktur Desa:</span>
+              <p class="text-sm md:text-lg lg:text-lg text-neutral-400 text-justify">
+                <span class="text-gray-600 text-base md:text-lg lg:text-lg">Peningkatan Infrastruktur Desa:</span>
                 Memperbaiki kualitas dan kuantitas infrastruktur desa guna menunjang tugas pemerintahan dan perekonomian, termasuk pembuatan taman untuk memperindah desa.
               </p>
             </div>
@@ -100,7 +100,7 @@
             <!-- Icon -->
             <div class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
               <div class="relative z-10 size-8 flex justify-center items-center">
-                <span class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-gray-800 font-semibold text-xs uppercase rounded-full">
+                <span class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-gray-800 font-semibold text-xs uppercase rounded-full md:text-lg lg:text-xl">
                   4
                 </span>
               </div>
@@ -109,8 +109,8 @@
   
             <!-- Right Content -->
             <div class="grow pt-0.5 pb-8 sm:pb-12">
-              <p class="text-sm md:text-base text-neutral-400">
-                <span class="text-gray-600 text-base">Peningkatan Perekonomian Desa:</span>
+              <p class="text-sm md:text-lg lg:text-lg text-neutral-400 text-justify">
+                <span class="text-gray-600 text-base md:text-lg lg:text-lg">Peningkatan Perekonomian Desa:</span>
                 Meningkatkan ekonomi desa melalui perbaikan infrastruktur, pendampingan untuk petani dan UMKM, serta pengembangan potensi desa, terutama di sektor pertanian dan kemungkinan industri.
               </p>
             </div>
@@ -123,7 +123,7 @@
             <!-- Icon -->
             <div class="relative">
               <div class="relative z-10 size-8 flex justify-center items-center">
-                <span class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-gray-800 font-semibold text-xs uppercase rounded-full">
+                <span class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-gray-800 font-semibold text-xs uppercase rounded-full md:text-lg lg:text-xl">
                   5
                 </span>
               </div>
@@ -132,8 +132,8 @@
   
             <!-- Right Content -->
             <div class="grow pt-0.5 pb-8 sm:pb-12">
-              <p class="text-sm md:text-base text-neutral-400">
-                <span class="text-gray-600 text-base">Pembangunan Sosial dan Budaya:</span>
+              <p class="text-sm md:text-lg lg:text-lg text-neutral-400 text-justify">
+                <span class="text-gray-600 text-base md:text-lg lg:text-lg">Pembangunan Sosial dan Budaya:</span>
                 Meningkatkan kualitas kehidupan sosial dan budaya melalui kegiatan seni dan keagamaan untuk mendukung kehidupan yang lebih religius dan magis.
               </p>
             </div>

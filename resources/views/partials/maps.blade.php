@@ -15,10 +15,10 @@
                 <div class="space-y-6 sm:space-y-8">
                     <!-- Title -->
                     <div class="space-y-2 md:space-y-4">
-                        <h2 class="font-bold text-3xl lg:text-4xl text-gray-800">
+                        <h2 class="font-bold text-2xl lg:text-4xl text-gray-800">
                             Lokasi Desa Bukian
                         </h2>
-                        <p class="text-gray-500">Terletak di perbukitan tenang Payangan, Gianyar, Desa Bukian menawarkan perpaduan antara bentang alam yang subur, kekayaan budaya, dan kehidupan pedesaan yang damai. Destinasi ini sangat cocok untuk mereka yang mencari tempat peristirahatan yang damai atau pengalaman budaya yang mendalam di Bali.
+                        <p class="text-gray-500 text-justify text-base md:text-lg lg:text-xl">Terletak di perbukitan tenang Payangan, Gianyar, Desa Bukian menawarkan perpaduan antara bentang alam yang subur, kekayaan budaya, dan kehidupan pedesaan yang damai. Destinasi ini sangat cocok untuk mereka yang mencari tempat peristirahatan yang damai atau pengalaman budaya yang mendalam di Bali.
                         </p>
                     </div>
                     <!-- End Title -->
@@ -35,7 +35,7 @@
                                 </svg>
                             </span>
                             <div class="grow">
-                                <span class="text-sm sm:text-base text-gray-500">
+                                <span class="text-sm sm:text-base lg:text-lg text-gray-500">
                                     <span class="font-bold">Pemandangan yang Menakjubkan</span> dengan sawah berunduk dan
                                     perkebunan hijau.
                             </div>
@@ -48,7 +48,7 @@
                                 </svg>
                             </span>
                             <div class="grow">
-                                <span class="text-sm sm:text-base text-gray-500">
+                                <span class="text-sm sm:text-base lg:text-lg text-gray-500">
                                     <span class="font-bold">Pengalaman Budaya Otentik</span> dengan upacara tradisional dan interaksi hangat dengan komunitas.
                                 </span>
                             </div>
@@ -61,7 +61,7 @@
                                 </svg>
                             </span>
                             <div class="grow">
-                                <span class="text-sm sm:text-base text-gray-500">
+                                <span class="text-sm sm:text-base lg:text-lg text-gray-500">
                                     <span class="font-bold">Hidup Ramah Lingkungan</span> dengan praktik pertanian berkelanjutan dan penghormatan terhadap alam.
                                 </span>
                             </div>
