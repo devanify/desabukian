@@ -59,6 +59,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/dashboard/infografis/store',[InfografisController::class, 'store'])->name('infografis.store');
     Route::get('/dashboard/infografis/edit/{id}',[InfografisController::class, 'edit'])->name('infografis.edit');
     Route::put('/dashboard/infografis/{id}',[InfografisController::class, 'update'])->name('infografis.update');
+    Route::delete('/dashboard/infografis{id}',[InfografisController::class, 'destroy'])->name('infografis.destroy');
     
     Route::get('/dashboard/pengumuman',[PengumumanController::class, 'index'])->name('pengumuman.index');
     Route::get('/dashboard/pengumuman/create',[PengumumanController::class, 'create'])->name('pengumuman.create');

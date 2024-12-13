@@ -136,8 +136,10 @@ class InfografisController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $info = Infografis::findOrFail($id);
+        $info->delete();
+        return redirect()->route('infografis.index')->with('success', 'Data berhasil dihapus !');
     }
 }

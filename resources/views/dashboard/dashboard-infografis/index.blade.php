@@ -38,6 +38,16 @@
                                 <td>{{ $i->jumlah_perempuan }}</td>
                                 <td>
                                     <a class="btn btn-warning text-white" href="{{ route('infografis.edit',['id'=>$i->id]) }}">UPDATE</a>
+                                    <form action="{{ route('infografis.destroy', $i->id) }}" method="POST"
+                                        style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger text-uppercase delete"
+                                            data-name="{{ $i->tahun }}" data-toggle="tooltip"
+                                            data-original-title="Delete">
+                                            Delete
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
