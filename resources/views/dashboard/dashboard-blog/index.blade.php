@@ -34,7 +34,7 @@
                             <img src="{{asset('assets/image/posts/'.$p->image_url) }}" alt="" height="100px"></td>
                         <td> {{ substr(strip_tags($p->content), 0, 100) }}...</td>
                         <td>
-                            <a class="btn btn-warning text-white" href="{{ route('posts.edit',['id'=>$p->id]) }}">UPDATE</a>
+                            <a class="btn btn-warning text-white mb-1 mr-1" href="{{ route('posts.edit',['id'=>$p->id]) }}">UPDATE</a>
                             <form action="{{ route('posts.destroy', $p->id) }}" method="POST"
                                 style="display: inline;">
                                 @csrf

@@ -34,7 +34,7 @@
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
                 <div class="d-flex justify-content-start align-items-center my-2">
-                    {{-- <i class="fas fa-user mx-2"></i> {{ $user->name }} --}}
+                    <i class="fas fa-user mx-2"></i> {{ $user->name }}
                 </div>
             </div>
         </nav>

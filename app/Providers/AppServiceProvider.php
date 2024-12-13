@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,6 +22,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Bagikan variabel user hanya ke view dalam folder dashboard
+        View::composer('dashboard.*', function ($view) {
+            $view->with('user', Auth::user());
+        });
         Paginator::useTailwind();
     }
 }
