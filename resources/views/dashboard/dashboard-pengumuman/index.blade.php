@@ -21,6 +21,7 @@
                         <th class="col-2">NO</th>
                         <th>Tanggal Publikasi</th>
                         <th>Judul</th>
+                        <th>File</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -47,7 +48,19 @@
                                     Buka PDF
                                 </button>
                             @endif
+                        </td>
+                        <td>
                             <a class="btn btn-warning text-white " href="{{ route('pengumuman.edit',['id'=>$p->id]) }}">Update</a>
+                            <form action="{{ route('pengumuman.destroy', $p->id) }}" method="POST"
+                                style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger text-uppercase delete"
+                                    data-name="{{ $p->judul }}" data-toggle="tooltip"
+                                    data-original-title="Delete">
+                                    Delete
+                                </button>
+                            </form>
                         </td>
                     @endforeach
                     </tr>

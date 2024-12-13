@@ -66,6 +66,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/dashboard/pengumuman/edit/{id}',[PengumumanController::class, 'edit'])->name('pengumuman.edit');
     Route::put('/dashboard/pengumuman/{id}',[PengumumanController::class, 'update'])->name('pengumuman.update');
     Route::get('/dashboard/show/{file}', [PengumumanController::class, 'show'])->name('pengumuman.show');
+    Route::delete('/dashboard/pengumuman{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 
 });
 

@@ -153,8 +153,10 @@ class PengumumanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $pengumuman = Pengumuman::findOrFail($id);
+        $pengumuman->delete();
+        return redirect()->route('pengumuman.index')->with('success', 'Data berhasil dihapus !');
     }
 }
