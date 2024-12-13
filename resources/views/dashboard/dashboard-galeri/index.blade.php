@@ -30,7 +30,19 @@
                         <td>{{ $loop->iteration }}</td>
                         <td><img src="{{asset('assets/image/galeri/'.$g->image_url) }}" alt="" height="200px"></td>
                         <td>{{ $g->description }}</td> 
-                        <td><a class="btn btn-warning text-white" href="{{ route('galeri.edit',['id'=>$g->id]) }}">UPDATE</a></td>
+                        <td>
+                            <a class="btn btn-warning text-white" href="{{ route('galeri.edit',['id'=>$g->id]) }}">UPDATE</a>
+                            <form action="{{ route('galeri.destroy', $g->id) }}" method="POST"
+                                style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger text-uppercase delete"
+                                    data-name="{{ $g->description }}" data-toggle="tooltip"
+                                    data-original-title="Delete">
+                                    Delete
+                                </button>
+                            </form></td>
+                        </td>
                     </tr>
                     @endforeach
                     

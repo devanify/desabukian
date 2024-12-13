@@ -52,6 +52,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/dashboard/galeri/store',[GaleriController::class, 'store'])->name('galeri.store');
     Route::get('/dashboard/galeri/edit/{id}',[GaleriController::class, 'edit'])->name('galeri.edit');
     Route::put('/dashboard/galeri/{id}',[GaleriController::class, 'update'])->name('galeri.update');
+    Route::delete('dashboard/galeri{id}',[GaleriController::class, 'destroy'])->name('galeri.destroy');
     
     Route::get('/dashboard/infografis',[InfografisController::class, 'index'])->name('infografis.index');
     Route::get('/dashboard/infografis/create',[InfografisController::class, 'create'])->name('infografis.create');

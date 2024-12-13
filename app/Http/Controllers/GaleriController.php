@@ -134,8 +134,11 @@ class GaleriController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(galeri $galeri)
+    public function destroy($id)
     {
-        //
+        $galeri = Galeri::findOrFail($id);
+        $galeri->delete();
+        return redirect()->route('galeri.index')->with('success', 'Data berhasil dihapus !');
+
     }
 }
