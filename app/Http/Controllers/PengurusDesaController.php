@@ -170,6 +170,6 @@ class PengurusDesaController extends Controller
     {
         $pengurusdesa = PengurusDesa::findOrFail($id);
         $pengurusdesa->delete();
-        return redirect()->route('pengurusdesa.index')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('pengurusdesa.index')->with('success', 'Data berhasil dihapus !');
     }
 }

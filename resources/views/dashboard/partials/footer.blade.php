@@ -15,13 +15,13 @@
 {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.delete').forEach(function(button) {
-            button.addEventListener('click', function(event) {
+        document.body.addEventListener('click', function(event) {
+            if (event.target.classList.contains('delete')) {
                 event.preventDefault(); // Mencegah submit form otomatis
 
-                const form = this.closest('form'); // Ambil form terdekat dari tombol
-                const dataName = this.getAttribute(
-                'data-name'); // Ambil nilai dari atribut data-name
+                const button = event.target;
+                const form = button.closest('form'); // Ambil form terdekat dari tombol
+                const dataName = button.getAttribute('data-name'); // Ambil nilai dari atribut data-name
 
                 Swal.fire({
                     title: 'Apakah Anda yakin?',
@@ -40,7 +40,7 @@
                         'info'); // Tampilkan pesan jika dibatalkan
                     }
                 });
-            });
+            }
         });
     });
 </script>

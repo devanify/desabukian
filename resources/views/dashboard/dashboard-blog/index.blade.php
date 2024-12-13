@@ -33,7 +33,18 @@
                         <td>
                             <img src="{{asset('assets/image/posts/'.$p->image_url) }}" alt="" height="100px"></td>
                         <td> {{ substr(strip_tags($p->content), 0, 100) }}...</td>
-                        <td><a class="btn btn-warning text-white" href="{{ route('posts.edit',['id'=>$p->id]) }}">UPDATE</a></td>
+                        <td>
+                            <a class="btn btn-warning text-white" href="{{ route('posts.edit',['id'=>$p->id]) }}">UPDATE</a>
+                            <form action="{{ route('posts.destroy', $p->id) }}" method="POST"
+                                style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger text-uppercase delete"
+                                    data-name="{{ $p->title }}" data-toggle="tooltip"
+                                    data-original-title="Delete">
+                                    Delete
+                                </button>
+                            </form></td>
                     </tr>
                     @endforeach
                     
